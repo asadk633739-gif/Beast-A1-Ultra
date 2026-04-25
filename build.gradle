@@ -1,29 +1,11 @@
-plugins {
-    id 'java'
-}
-
-group = 'com.beast'
-version = '1.0.0'
-
-repositories {
-    mavenCentral()
-    maven { url 'https://maven.fabricmc.net/' }
-}
-
-dependencies {
-    implementation "net.fabricmc:fabric-loader:0.15.3"
-}
-
-// Ye part zaroori hai file dhoondne ke liye
 sourceSets {
     main {
-        java { srcDirs = ['src/main/java'] }
-        resources { srcDirs = ['src/main/resources'] }
+        java { 
+            // Ye dono raaste check karega
+            srcDirs = ['src/main/java', 'src/main/src/main/java'] 
+        }
+        resources { 
+            srcDirs = ['src/main/resources', 'src/main/src/main/resources'] 
+        }
     }
-}
-
-jar {
-    from sourceSets.main.output
-    // Isse empty jar nahi banega
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE 
 }
