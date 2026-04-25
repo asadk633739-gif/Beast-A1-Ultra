@@ -1,15 +1,16 @@
 plugins {
     id 'java'
 }
-group = 'com.beast'
-version = '1.0.0'
-repositories {
-    mavenCentral()
-    maven { url 'https://maven.fabricmc.net/' }
+
+// Ye line files ko dhoondne mein madad karegi
+sourceSets {
+    main {
+        java { srcDirs = ['src/main/java'] }
+        resources { srcDirs = ['src/main/resources'] }
+    }
 }
-dependencies {
-    compileOnly "net.fabricmc:fabric-loader:0.15.3"
-}
+
 jar {
     from sourceSets.main.output
+    from sourceSets.main.resources
 }
