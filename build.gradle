@@ -1,25 +1,25 @@
-buildscript {
-    repositories {
-        maven { url "https://maven.fabricmc.net/" }
-        mavenCentral()
-    }
-    dependencies {
-        classpath "net.fabricmc:fabric-loom:1.4-SNAPSHOT"
-    }
+plugins {
+    id 'java'
 }
 
-apply plugin: "fabric-loom"
-
-group = "com.beast"
-version = "1.0.0-ULTRA"
+group = 'com.beast'
+version = '1.0.0-ULTRA'
 
 repositories {
-    maven { url "https://maven.fabricmc.net/" }
     mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:1.20.1"
-    mappings "net.fabricmc:yarn:1.20.1+build.10:v2"
-    modImplementation "net.fabricmc:fabric-loader:0.15.3"
+    // Sirf basic loader jo Holy renderer ke saath fast chale
+    compileOnly "net.fabricmc:fabric-loader:0.15.3"
+}
+
+jar {
+    manifest {
+        attributes(
+            'Manifest-Version': '1.0',
+            'Main-Class': 'com.beast.BeastA1Core'
+        )
+    }
 }
