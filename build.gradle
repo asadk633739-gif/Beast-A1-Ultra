@@ -2,24 +2,20 @@ plugins {
     id 'java'
 }
 
-group = 'com.beast'
-version = '1.0.0-ULTRA'
-
 repositories {
     mavenCentral()
+    maven { url 'https://libraries.minecraft.net/' }
     maven { url 'https://maven.fabricmc.net/' }
 }
 
 dependencies {
-    // Sirf basic loader jo Holy renderer ke saath fast chale
     compileOnly "net.fabricmc:fabric-loader:0.15.3"
+    // Direct link to Minecraft Client for Holy Renderer support
+    compileOnly "com.mojang:minecraft:1.20.1"
 }
 
 jar {
     manifest {
-        attributes(
-            'Manifest-Version': '1.0',
-            'Main-Class': 'com.beast.BeastA1Core'
-        )
+        attributes('Main-Class': 'com.beast.BeastA1Core')
     }
 }
