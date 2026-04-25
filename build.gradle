@@ -14,8 +14,16 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:0.15.3"
 }
 
-// Ye hissa tumhara size badhayega
+// Ye part zaroori hai file dhoondne ke liye
+sourceSets {
+    main {
+        java { srcDirs = ['src/main/java'] }
+        resources { srcDirs = ['src/main/resources'] }
+    }
+}
+
 jar {
     from sourceSets.main.output
-    includeEmptyDirs = false
+    // Isse empty jar nahi banega
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE 
 }
