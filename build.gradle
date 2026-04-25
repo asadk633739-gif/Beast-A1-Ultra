@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.beast'
-version = '1.0.0'
+version = '1.0.0-REAL'
 
 repositories {
     mavenCentral()
@@ -11,13 +11,18 @@ repositories {
 }
 
 dependencies {
+    // Ye line code ko pack karne mein madad karegi
     compileOnly "net.fabricmc:fabric-loader:0.15.3"
 }
 
 jar {
+    // Isse saari files ek saath pack ho jayengi
+    from sourceSets.main.output
+    from sourceSets.main.allSource
+    
     manifest {
         attributes(
-            'Fabric-Loom-Version': '1.4-SNAPSHOT',
+            'Manifest-Version': '1.0',
             'Main-Class': 'com.beast.BeastA1Core'
         )
     }
