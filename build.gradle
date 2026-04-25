@@ -14,14 +14,8 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:0.15.3"
 }
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-    }
-}
-
+// Ye hissa tumhara size badhayega
 jar {
     from sourceSets.main.output
+    includeEmptyDirs = false
 }
