@@ -1,5 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.beast'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
+}
+
+dependencies {
+    implementation "net.fabricmc:fabric-loader:0.15.3"
+}
+
+// Ye line size badhayegi kyunki ye har jagah file dhoondegi
 jar {
-    from sourceSets.main.output
-    from sourceSets.main.resources
+    from ("src") {
+        include "**/*.java"
+        include "**/*.json"
+    }
+    // Isse empty jar nahi banega
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
