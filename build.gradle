@@ -1,22 +1,17 @@
 plugins {
-    id 'java'
+    id 'fabric-loom' version '1.4-SNAPSHOT'
 }
 
-group = 'com.beast'
 version = '1.0.0'
+group = 'com.beast'
 
 repositories {
+    maven { url "https://maven.fabricmc.net/" }
     mavenCentral()
-    maven { url 'https://maven.fabricmc.net/' }
 }
 
 dependencies {
-    // Sirf wahi libraries jo build ke liye zaruri hain
-    compileOnly "net.fabricmc:fabric-loader:0.15.3"
-}
-
-jar {
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
+    minecraft "com.mojang:minecraft:1.20.1"
+    mappings "net.fabricmc:yarn:1.20.1+build.10:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.15.3"
 }
