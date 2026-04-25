@@ -9,9 +9,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Build with Clean
-        # 'clean' dalne se purane failed builds ka asar khatam ho jayega
-        run: ./gradlew clean jar --no-daemon
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+      - name: Build Mod
+        # Yahan se './' hata diya hai taaki error na aaye
+        run: gradle clean jar --no-daemon
       - name: Upload Mod
         uses: actions/upload-artifact@v4
         with:
