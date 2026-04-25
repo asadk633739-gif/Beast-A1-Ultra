@@ -1,20 +1,6 @@
-name: Beast-Success
-on: [push, workflow_dispatch]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-      - name: Build
-        run: gradle jar --no-daemon
-      - name: Upload
+      - name: Upload Mod
         uses: actions/upload-artifact@v4
         with:
           name: Beast-A1-Final-Mod
+          # Ye path ek dum sahi hai, ise hi rakho
           path: build/libs/*.jar
