@@ -1,4 +1,4 @@
-name: Beast-Ultra-Final
+name: Beast-Final-Success
 on: [push, workflow_dispatch]
 jobs:
   build:
@@ -13,10 +13,10 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 8.2
-      - name: Force Jar Build
+      - name: Run Build
         run: gradle jar --no-daemon
       - name: Upload Mod
         uses: actions/upload-artifact@v4
         with:
-          name: Beast-A1-Final-Mod
+          name: Beast-Final-Jar
           path: build/libs/*.jar
