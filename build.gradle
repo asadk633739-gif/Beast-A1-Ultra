@@ -1,11 +1,5 @@
-sourceSets {
-    main {
-        java { 
-            // Ye dono raaste check karega
-            srcDirs = ['src/main/java', 'src/main/src/main/java'] 
-        }
-        resources { 
-            srcDirs = ['src/main/resources', 'src/main/src/main/resources'] 
-        }
-    }
+jar {
+    from sourceSets.main.output
+    from sourceSets.main.resources
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
