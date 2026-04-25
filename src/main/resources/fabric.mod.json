@@ -1,13 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "beast-a1",
+  "id": "beast-mod",
   "version": "1.0.0",
-  "name": "Beast A1",
+  "name": "Beast Mod",
   "entrypoints": {
     "main": [ "com.beast.BeastA1Core" ]
-  },
-  "depends": {
-    "fabricloader": ">=0.15.3",
-    "minecraft": "1.20.1"
   }
 }
