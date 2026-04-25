@@ -2,7 +2,20 @@ plugins {
     id 'java'
 }
 
-// Ye line files ko dhoondne mein madad karegi
+group = 'com.beast'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://maven.fabricmc.net/' }
+}
+
+dependencies {
+    // Ye line zaroori hai compilation error hatane ke liye
+    implementation "net.fabricmc:fabric-loader:0.15.3"
+}
+
+// Ye ensure karega ki tumhari files sahi se pack ho rahi hain
 sourceSets {
     main {
         java { srcDirs = ['src/main/java'] }
@@ -12,5 +25,6 @@ sourceSets {
 
 jar {
     from sourceSets.main.output
+    // Resources folder se fabric.mod.json uthayega
     from sourceSets.main.resources
 }
