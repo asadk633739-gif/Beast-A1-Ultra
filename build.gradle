@@ -3,22 +3,20 @@ plugins {
 }
 
 group = 'com.beast'
-version = '1.0.0-BEAST'
+version = '1.0.0'
 
 repositories {
     mavenCentral()
-    maven { url "https://maven.fabricmc.net/" }
+    maven { url 'https://maven.fabricmc.net/' }
 }
 
 dependencies {
-    // Basic Fabric Loader dependency
-    implementation "net.fabricmc:fabric-loader:0.15.3"
+    // Sirf wahi libraries jo build ke liye zaruri hain
+    compileOnly "net.fabricmc:fabric-loader:0.15.3"
 }
 
 jar {
-    manifest {
-        attributes(
-            'Main-Class': 'com.beast.BeastA1Core'
-        )
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
