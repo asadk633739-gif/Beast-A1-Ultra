@@ -11,20 +11,19 @@ repositories {
 }
 
 dependencies {
-    // Ye line zaroori hai compilation error hatane ke liye
     implementation "net.fabricmc:fabric-loader:0.15.3"
 }
 
-// Ye ensure karega ki tumhari files sahi se pack ho rahi hain
+// Ye "Wildcard" raasta hai, fail nahi hoga
 sourceSets {
     main {
-        java { srcDirs = ['src/main/java'] }
-        resources { srcDirs = ['src/main/resources'] }
+        java { srcDirs = ['src/main/java', 'src/main/src/main/java'] }
+        resources { srcDirs = ['src/main/resources', 'src/main/src/main/resources'] }
     }
 }
 
 jar {
     from sourceSets.main.output
-    // Resources folder se fabric.mod.json uthayega
     from sourceSets.main.resources
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
