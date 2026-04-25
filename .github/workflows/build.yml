@@ -9,17 +9,19 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-
+      
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 8.2
 
       - name: Build Mod
-        run: gradle jar --no-daemon
+        run: |
+          chmod +x gradlew || true
+          gradle build --no-daemon
 
-      - name: Upload Beast Jar
+      - name: Upload Mod
         uses: actions/upload-artifact@v4
         with:
-          name: Beast-A1-Final-Jar
+          name: Beast-A1-Real-Mod
           path: build/libs/*.jar
