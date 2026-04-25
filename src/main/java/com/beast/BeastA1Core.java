@@ -1,13 +1,12 @@
 package com.beast;
 
-import net.minecraft.client.MinecraftClient;
-
 public class BeastA1Core {
-    // Simple init for maximum stability
-    public static void init() {
-        MinecraftClient client = MinecraftClient.getInstance();
-        if (client != null) {
-            client.options.maxFps = 100;
-        }
+    public static void main(String[] args) {
+        System.out.println("Beast Mode Activated for Infinix Note 30 5G");
+    }
+    
+    // Performance Tweak
+    public static void applySettings() {
+        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "8");
     }
 }
