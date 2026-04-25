@@ -10,3 +10,10 @@ repositories {
 dependencies {
     implementation "net.fabricmc:fabric-loader:0.15.3"
 }
+
+// Ye line galat paths ko ignore karke sahi file pakad legi
+sourceSets {
+    main {
+        java { srcDirs = ['src/main/java'] }
+    }
+}
