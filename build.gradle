@@ -2,9 +2,6 @@ plugins {
     id 'java'
 }
 
-group = 'com.beast'
-version = '1.0.0'
-
 repositories {
     mavenCentral()
     maven { url 'https://maven.fabricmc.net/' }
@@ -14,16 +11,8 @@ dependencies {
     implementation "net.fabricmc:fabric-loader:0.15.3"
 }
 
-// Ye "Wildcard" raasta hai, fail nahi hoga
-sourceSets {
-    main {
-        java { srcDirs = ['src/main/java', 'src/main/src/main/java'] }
-        resources { srcDirs = ['src/main/resources', 'src/main/src/main/resources'] }
-    }
-}
-
+// Ye line sabse important hai size badhane ke liye
 jar {
-    from sourceSets.main.output
-    from sourceSets.main.resources
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from("src/main/java") { include "**/*.java" }
+    from("src/main/resources") { include "fabric.mod.json" }
 }
