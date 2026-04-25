@@ -1,10 +1,13 @@
 package com.beast;
+
 import net.minecraft.client.MinecraftClient;
 
 public class BeastA1Core {
+    // Simple init for maximum stability
     public static void init() {
-        // Infinix Dimensity 6080 Performance Lock
-        MinecraftClient.getInstance().options.maxFps = 100;
-        System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism", "8");
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client != null) {
+            client.options.maxFps = 100;
+        }
     }
 }
