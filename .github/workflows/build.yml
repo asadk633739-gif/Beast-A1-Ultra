@@ -1,4 +1,4 @@
-name: Beast-Success-Build
+name: Beast-Final-Success
 on: [push, workflow_dispatch]
 jobs:
   build:
@@ -9,10 +9,14 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Force Build Jar
-        run: |
-          gradle jar --no-daemon
-      - name: Upload Real Mod
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build Mod
+        run: ./gradlew build --no-daemon
+
+      - name: Upload Result
         uses: actions/upload-artifact@v4
         with:
           name: Beast-A1-Final-Mod
