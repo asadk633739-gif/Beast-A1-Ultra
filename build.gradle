@@ -22,7 +22,6 @@ sourceSets {
     }
 }
 
-// Ye line mod ko pack karegi
 jar {
     from sourceSets.main.output
 }
