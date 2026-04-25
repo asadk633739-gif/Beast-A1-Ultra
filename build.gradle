@@ -10,9 +10,3 @@ repositories {
 dependencies {
     implementation "net.fabricmc:fabric-loader:0.15.3"
 }
-
-// Ye line sabse important hai size badhane ke liye
-jar {
-    from("src/main/java") { include "**/*.java" }
-    from("src/main/resources") { include "fabric.mod.json" }
-}
